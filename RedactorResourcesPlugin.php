@@ -3,15 +3,15 @@ namespace Craft;
 
 class RedactorResourcesPlugin extends BasePlugin {
 
-    function getName() {
+    public function getName() {
         return Craft::t('Redactor Resources');
     }
 
-    function getVersion() {
+    public function getVersion() {
         return '1.0';
     }
 
-    function getDeveloper() {
+    public function getDeveloper() {
         return 'IMM';
     }
 
@@ -19,8 +19,16 @@ class RedactorResourcesPlugin extends BasePlugin {
         return Craft::t('Allows for external imperavi js plugins.');
     }
 
-    function getDeveloperUrl() {
+    public function getDeveloperUrl() {
         return 'http://imm.com';
+    }
+
+    public function getPluginUrl() {
+        return 'https://github.com/imm-llc/redactorresources';
+    }
+
+    public function getDocumentationUrl() {
+        return $this->getPluginUrl() . '/blob/master/README.md';
     }
 
     public function getSourceLanguage() {
@@ -47,5 +55,21 @@ class RedactorResourcesPlugin extends BasePlugin {
             craft()->templates->includeJsResource("redactorresources/js/plugins.js");
             craft()->templates->includeCssResource("redactorresources/css/plugins.css");
         }
+
+
+        // @TODO Change to this
+        // search in public dir
+        // if (craft()->request->isCpRequest()) {
+        //     $arrJsDir = preg_grep('/^([^.])/', scandir("js/redactor/"));
+        //     $arrCssDir = preg_grep('/^([^.])/', scandir("css/redactor/"));
+        //     foreach($arrJsDir as $strFile){
+        //         craft()->templates->includeJsFile("/js/redactor/".$strFile);
+        //     }
+        //     foreach($arrCssDir as $strFile){
+        //         craft()->templates->includeCssFile("/css/redactor/".$strFile);
+        //     }
+        // }
+
+
     }
 }
