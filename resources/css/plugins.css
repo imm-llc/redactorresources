@@ -1,0 +1,46 @@
+/* alignment.css */
+.text-center {
+    text-align: center;
+}
+.text-right {
+    text-align: right;
+}
+.text-justify {
+    text-align: justify;
+}
+
+
+/* Athlete Table */
+.experience-table {
+    padding: 3rem 0;
+    text-align: center;
+}
+.experience-table img {
+    padding-bottom: 30px;
+}
+.experience-table .main-title {
+    padding-bottom: 1rem;
+}
+.experience-table .title {
+    font-family: 'ProximaNovaBold';
+}
+.experience-table p {
+    margin-bottom: 0;
+}
+
+.experience-table table {
+    margin-bottom: 0 !important;
+}
+.experience-table table tbody {
+    border: none;
+}
+.experience-table table tbody tr {
+    border-bottom: 1px solid #E0E5E5;
+}
+.experience-table table tbody tr td {
+    padding: 0.875rem 0.625rem;
+}
+.experience-table table tbody tr:last-child {
+    background-color: none;
+    border-bottom: none;
+}
