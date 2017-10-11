@@ -8,7 +8,7 @@ class RedactorResourcesPlugin extends BasePlugin {
     }
 
     public function getVersion() {
-        return '1.0';
+        return '1.1.0';
     }
 
     public function getDeveloper() {
@@ -50,26 +50,15 @@ class RedactorResourcesPlugin extends BasePlugin {
 
     public function init() {
         if (craft()->request->isCpRequest()) {
-            // Get settings
-            //$settings = $this->getSettings();
-            craft()->templates->includeJsResource("redactorresources/js/plugins.js");
-            craft()->templates->includeCssResource("redactorresources/css/plugins.css");
+            $arrJsDir = preg_grep('/^([^.])/', scandir("js/redactor/"));
+            $arrCssDir = preg_grep('/^([^.])/', scandir("css/redactor/"));
+            foreach($arrJsDir as $strFile){
+                craft()->templates->includeJsFile("/js/redactor/".$strFile);
+            }
+            foreach($arrCssDir as $strFile){
+                craft()->templates->includeCssFile("/css/redactor/".$strFile);
+            }
         }
-
-
-        // @TODO Change to this
-        // search in public dir
-        // if (craft()->request->isCpRequest()) {
-        //     $arrJsDir = preg_grep('/^([^.])/', scandir("js/redactor/"));
-        //     $arrCssDir = preg_grep('/^([^.])/', scandir("css/redactor/"));
-        //     foreach($arrJsDir as $strFile){
-        //         craft()->templates->includeJsFile("/js/redactor/".$strFile);
-        //     }
-        //     foreach($arrCssDir as $strFile){
-        //         craft()->templates->includeCssFile("/css/redactor/".$strFile);
-        //     }
-        // }
-
-
     }
+
 }
